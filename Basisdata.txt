@@ -1,0 +1,48 @@
+create database rumah_sakit_kelompok_e;
+
+use rumah_sakit_kelompok_e;
+
+create table jadwal_dokter(
+id_dokter varchar(20) NOT NULL,
+jadwal date NOT NULL);
+
+
+create table dokter(
+id_dokter varchar(20) NOT NULL PRIMARY KEY,
+nama_dokter varchar(20) NOT NULL,
+spesialis varchar(20) NOT NULL);
+
+create table appointment(
+id_apt varchar(20) NOT NULL PRIMARY KEY,
+id_pasien varchar(20) NOT NULL,
+id_resep varchar(20) NOT NULL,
+jadwal date NOT NULL);
+
+create table pasien(
+id_pasien varchar(20) NOT NULL PRIMARY KEY,
+nama_pasien varchar(20) NOT NULL,
+gejala varchar(50) NOT NULL);
+
+create table resep(
+id_resep varchar(20) NOT NULL PRIMARY KEY,
+id_obat varchar(20) NOT NULL,
+id_pasien varchar(20) NOT NULL,
+dosis varchar(20) NOT NULL);
+
+create table tebus_obat(
+id_transaksi varchar(20) NOT NULL PRIMARY KEY,
+id_pasien varchar(20) NOT NULL,
+id_resep varchar(20) NOT NULL,
+biaya int NOT NULL);
+
+create table depo_farmasi(
+id_depo varchar(20) NOT NULL PRIMARY KEY,
+id_obat varchar(20) NOT NULL,
+nama_obat varchar(20) NOT NULL,
+jenis_obat varchar(20) NOT NULL);
+
+create table admin(
+id_admin varchar(20) NOT NULL PRIMARY KEY,
+nama_admin varchar(20) NOT NULL,
+email varchar(30) NOT NULL,
+password varchar(20) NOT NULL);
