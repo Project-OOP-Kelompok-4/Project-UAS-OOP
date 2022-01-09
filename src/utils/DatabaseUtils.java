@@ -19,7 +19,6 @@ public class DatabaseUtils {
 	public void connect() {
 		try {
 			connection = DriverManager.getConnection(DB_URL, user, password);
-			System.out.println("Koneksi ke database berhasil...!");
 		} catch (Exception e) {
 			System.out.println("Terjadi error " + e.getMessage());
 		}
