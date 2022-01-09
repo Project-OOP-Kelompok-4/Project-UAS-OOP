@@ -6,18 +6,31 @@ import utils.Validator;
 import java.util.Scanner;
 
 import DAO.AdminDAO;
+import DAO.AppointmentDAO;
 import DAOImpl.AdminDAOImpl;
+import DAOImpl.AppointmentDAOImpl;
 import pojo.Admin;
+import pojo.Appointment;
 public class MainTest {
 
 	public static void main(String[] args) {
 		DatabaseUtils db = new DatabaseUtils();
 		Admin adm = new Admin();
 		AdminDAO operation = new AdminDAOImpl();
+		Appointment appo = new Appointment();
+		AppointmentDAO appOperation = new AppointmentDAOImpl();
 		Scanner scan = new Scanner(System.in);
 		Validator val = new Validator();
 		
 		int input = 0;
+		
+		
+		appo.setId_apt("A0001");
+		appo.setId_pasien("Sri Wahyuni");
+		appo.setId_resep("R3001");
+		appo.setJadwal("2022-01-02");
+		
+		appOperation.saveAppointment(appo);
 		
 		
 		System.out.println("Selamat Datang");
@@ -75,5 +88,6 @@ public class MainTest {
 		}
 		
 	}
+	
 
 }
