@@ -17,5 +17,5 @@ public class JadwalDokter {
 			this.jadwal = jadwal;
 		}
 		
-
+		//
 }
