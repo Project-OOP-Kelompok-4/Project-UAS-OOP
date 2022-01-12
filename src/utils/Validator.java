@@ -11,7 +11,7 @@ public class Validator {
 			regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 					+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 			errorMsg = "Err: Format email salah, ulangi lagi...!";
-		} else if (type.equals("nip")) {
+		} else if (type.equals("password")) {
 			regex = "[0-9]{9}";
 			errorMsg = "Err: Nip harus dalam format angka, 9 karakter";
 		} else if (type.equals("nama")) {
