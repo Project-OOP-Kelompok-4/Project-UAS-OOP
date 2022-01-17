@@ -12,13 +12,9 @@ public class Validator {
 					+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 			errorMsg = "Err: Format email salah, ulangi lagi...!";
 		} else if (type.equals("password")) {
-			regex = "[0-9]{9}";
-			errorMsg = "Err: Nip harus dalam format angka, 9 karakter";
-		} else if (type.equals("nama")) {
-			regex = "^[A-Za-z]+((\\s)?((\\'|\\-|\\.)?([A-Za-z])+))*$";
-			errorMsg = "Err: Format nama salah, ulangi lagi...!";
+			regex = "^(?=.*\\d)(?=.*[a-z]).{5,20}$";
+			errorMsg = "Err: Format password salah, ulangi lagi...!";
 		}
-		
 		do {
 			test = 1;
 			System.out.print(label);
