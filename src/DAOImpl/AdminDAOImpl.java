@@ -40,18 +40,6 @@ public class AdminDAOImpl implements AdminDAO{
 		
 		return listAdm;
 	}
-	
-	@Override
-	public void getAdminByName(String name) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void getAdminByEmail(String email) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void saveAdmin(Admin admin) {
@@ -71,7 +59,6 @@ public class AdminDAOImpl implements AdminDAO{
 		} catch (Exception ex) {
 			System.out.println("Terjadi error: " + ex.getMessage());
 		}
-		
 	}
 
 	@Override
