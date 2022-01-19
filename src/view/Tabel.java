@@ -10,7 +10,6 @@ import pojo.JadwalDokter;
 import pojo.Pasien;
 import pojo.Resep;
 
-
 public class Tabel {
 	public static void tampilDokter(List<Dokter> listDkt) {
 		char back;

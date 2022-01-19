@@ -10,18 +10,24 @@ import DAO.DepoFarmasiDAO;
 import DAO.DokterDAO;
 import DAO.ResepDAO;
 import DAO.TebusObatDAO;
+import DAO.JadwalDokterDAO;
+import DAO.PasienDAO;
 import DAOImpl.AdminDAOImpl;
 import DAOImpl.AppointmentDAOImpl;
 import DAOImpl.DepoFarmasiDAOImpl;
 import DAOImpl.DokterDAOImpl;
 import DAOImpl.ResepDAOImpl;
 import DAOImpl.TebusObatDAOImpl;
+import DAOImpl.JadwalDokterDAOImpl;
+import DAOImpl.PasienDAOImpl;
 import pojo.Admin;
 import pojo.Appointment;
 import pojo.DepoFarmasi;
 import pojo.Dokter;
 import pojo.Resep;
 import pojo.TebusObat;
+import pojo.JadwalDokter;
+import pojo.Pasien;
 
 public class FormIsian {
 	
@@ -85,7 +91,7 @@ public class FormIsian {
 			dkt.setId(scr.nextLine());
 			System.out.print("Nama : ");
 			dkt.setNama(scr.nextLine());
-			System.out.print("Spesialis : ");
+			System.out.println("Spesialis : ");
 			dkt.setSpesialis(scr.nextLine());
 			System.out.print("Email : ");
 			dkt.setEmail(scr.nextLine());
@@ -93,6 +99,26 @@ public class FormIsian {
 			dkt.setPassword(scr.nextLine());
 		
 			operation.updateDokter(dkt);
+			
+			System.out.println("Berhasil Ditambahkan....");
+		} catch (Exception e) {
+			System.out.println("Terjadi Error : " +e.getMessage());
+		}
+		scr.close();
+	}
+	
+	public void addJadwalDokter() {
+		JadwalDokter jadwaldokter = new JadwalDokter();
+		JadwalDokterDAO operation = new JadwalDokterDAOImpl();
+		Scanner scr = new Scanner(System.in);
+		try {
+			
+			System.out.print("ID Dokter : ");
+			jadwaldokter.setId_dokter(scr.nextLine());
+			System.out.print("Jadwal : ");
+			jadwaldokter.setJadwal_dokter(scr.nextLine());
+		
+			operation.createJadwal(jadwaldokter);
 			
 			System.out.println("Data Berhasil Diubah....");
 			AktifitasAdmin.dataDokter();
@@ -141,6 +167,7 @@ public class FormIsian {
 			
 			System.out.println("Berhasil Ditambahkan....");
 			AktifitasAdmin.dataAppo();
+					
 		} catch (Exception e) {
 			System.out.println("Terjadi Error : " +e.getMessage());
 		}
@@ -325,7 +352,6 @@ public class FormIsian {
 		DepoFarmasiDAO operation = new DepoFarmasiDAOImpl();
 		Scanner scr = new Scanner(System.in);
 		try {
-			
 			System.out.print("ID Obat : ");
 			dpo.setId_obat(scr.nextLine());
 			System.out.print("Nama Obat : ");
@@ -339,6 +365,31 @@ public class FormIsian {
 			
 			System.out.println("Berhasil Ditambahkan....");
 			AktifitasDokter.dataResep();
+		} catch (Exception e) {
+			System.out.println("Terjadi Error : " +e.getMessage());
+		}
+		scr.close();
+	}
+			
+			
+		
+	public void addPasien() {
+		Pasien pasien = new Pasien();
+		PasienDAO operation = new PasienDAOImpl();
+		Scanner scr = new Scanner(System.in);
+		try {
+			
+			System.out.print("ID Pasien : ");
+			pasien.setId_pasien(scr.nextLine());
+			System.out.print("Nama_Pasien : ");
+			pasien.setNama_pasien(scr.nextLine());
+			System.out.print("Gejala : ");
+			pasien.setGejala(scr.nextLine());
+		
+			operation.savePasien(pasien);
+			
+			System.out.println("Berhasil Registrasi....");
+
 		} catch (Exception e) {
 			System.out.println("Terjadi Error : " +e.getMessage());
 		}

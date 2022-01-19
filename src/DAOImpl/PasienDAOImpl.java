@@ -91,12 +91,9 @@ public class PasienDAOImpl implements PasienDAO{
 		}
 		
 	}
-
 	@Override
 	public String getByIdPasien(String id_pasien) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
-

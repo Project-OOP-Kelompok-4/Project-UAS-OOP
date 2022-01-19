@@ -10,4 +10,5 @@ public interface JadwalDokterDAO {
 	public void readJadwal(JadwalDokter jadwal);
 	public void updateJadwal(JadwalDokter jadwal);
 	public void delete(JadwalDokter jadwal);
+	public void saveJadwalDokter(JadwalDokter jadwaldokter);
 }

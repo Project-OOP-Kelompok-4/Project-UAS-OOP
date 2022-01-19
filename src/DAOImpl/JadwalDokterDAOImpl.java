@@ -27,7 +27,7 @@ public class JadwalDokterDAOImpl implements JadwalDokterDAO {
 				
 				JadwalDokter jadwaldokter = new JadwalDokter();
 				
-				jadwaldokter.setId_dokter(Integer.parseInt(rs.getObject(1).toString()));
+				jadwaldokter.setId_dokter(rs.getObject(1).toString());
 				jadwaldokter.setJadwal_dokter(rs.getObject(2).toString());
 				
 				listJadwalDokter.add(jadwaldokter);
@@ -62,6 +62,12 @@ public class JadwalDokterDAOImpl implements JadwalDokterDAO {
 
 	@Override
 	public void delete(JadwalDokter jadwal) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveJadwalDokter(JadwalDokter jadwaldokter) {
 		// TODO Auto-generated method stub
 		
 	}

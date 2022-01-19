@@ -1,13 +1,13 @@
 package pojo;
 
 public class JadwalDokter {
-		private int id_dokter;
+		private String id_dokter;
 		private String jadwal;
 		
-		public int getId_dokter() {
+		public String getId_dokter() {
 			return id_dokter;
 		}
-		public void setId_dokter(int id_dokter) {
+		public void setId_dokter(String id_dokter) {
 			this.id_dokter = id_dokter;
 		}
 		public String getJadwal() {
