@@ -14,6 +14,7 @@ public class Tabel {
 		System.out.println("|2. Dokter                      |");
 		System.out.println("|3. Keluar                      |");
 		System.out.println("|_______________________________|");
-	}
 	
-}
+	}
+	}
+
