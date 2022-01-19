@@ -94,12 +94,12 @@ public class DepoFarmasiDAOImpl implements DepoFarmasiDAO{
 		}
 	}
 	
-	public void updateObat(DepoFarmasi depoFarmasi, String id) {
+	public void updateObat(int stok, String id) {
 		DatabaseUtils db = new DatabaseUtils();
 		String query;
 		try {
 			db.connect();
-			query = "UPDATE depo_farmasi SET stok="+depoFarmasi.getStok()+" WHERE id_obat='"+id+"'";
+			query = "UPDATE depo_farmasi SET stok="+stok+" WHERE id_obat='"+id+"'";
 			
 			db.executeQuery(query);
 			System.out.println("Data berhasil diperbarui!");
@@ -121,6 +121,21 @@ public class DepoFarmasiDAOImpl implements DepoFarmasiDAO{
 			System.out.println("Terjadi error: " + e.getMessage());
 		}
 		
+	}
+
+	@Override
+	public int getStokById(String id, List<DepoFarmasi> listObat) {
+		int stok = 0;
+		
+		for(DepoFarmasi depoFarmasi : listObat) {
+			if(depoFarmasi.getId_obat().equals(id)) {
+				stok = depoFarmasi.getStok();
+			}else {
+				System.out.println("Obat tidak ada, harap tambahkan terlebih dahulu...");
+			}
+		}
+		
+		return stok;
 	}
 
 }

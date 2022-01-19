@@ -130,6 +130,7 @@ public class AktifitasAdmin {
 		case 1 :
 			FormIsian.transaksi();
 		}
+		scan.close();
 	}
 	
 	public static void dataDepo() {
@@ -143,13 +144,13 @@ public class AktifitasAdmin {
 		switch(input) {
 		
 		case 1 :
-			FormIsian.addAppo();
+			FormIsian.addObat();
 			break;
 		case 2 :
-			//Tabel.tampilAppo(appo.getAllAppointment());
+			Tabel.tampilDepo(dpo.getObat());
 			break;
 		case 3 :
-			FormIsian.updateAppo();
+			FormIsian.updateObat();
 			break;
 		case 4 :
 			aktifitasAdmin();
@@ -158,5 +159,6 @@ public class AktifitasAdmin {
 			System.out.println("Pilihan Tidak Tersedia....");
 			dataDepo();
 		}
+		scan.close();
 	}
 }

@@ -6,14 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DAO.ResepDAO;
+import pojo.DepoFarmasi;
 import pojo.Resep;
 import utils.DatabaseUtils;
 
 public class ResepDAOImpl implements ResepDAO{
 
 	@Override
-	public String getResepByIdResep(String id_resep) {
-		return null;
+	public String getObatByIdResep(String id_resep, List<Resep> listRsp) {
+		String obat = null;
+		
+		for(Resep rsp : listRsp) {
+			if(rsp.getId_resep().equals(id_resep)) {
+				obat = rsp.getId_obat();
+			}else {
+				System.out.println("Data tidak ada, harap tambahkan terlebih dahulu...");
+			}
+		}
+		
+		return obat;
 	}
 
 	@Override

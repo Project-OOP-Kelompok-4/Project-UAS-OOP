@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import pojo.Appointment;
+import pojo.DepoFarmasi;
 import pojo.Dokter;
 import pojo.JadwalDokter;
 import pojo.Pasien;
@@ -150,6 +151,27 @@ public class Tabel {
 		back = scanner.next().charAt(0);
 		if (back == 'B' || back == 'b') {
 			AktifitasDokter.aktifitasDokter();
+		}
+		scanner.close();
+	}
+	
+	public static void tampilDepo(List<DepoFarmasi> listDpo) {
+		char back;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println();
+		System.out.println("     ----------------------------------------------------------------------------------------------------------------");
+		System.out.println("    |							DEPO FARMASI				     |");
+		System.out.println("     ----------------------------------------------------------------------------------------------------------------");
+		System.out.println("    |\tID OBAT\t\t|\tNama\t\t\t|\\tStok\\t\\t\\t|\\tHarga\\t\\t\\t|      ");
+		System.out.println("     ----------------------------------------------------------------------------------------------------------------");
+		for (DepoFarmasi dpo : listDpo) {
+			System.out.println("    |\t"+dpo.getId_obat()+"\t|\t"+dpo.getNama_obat()+"\t|\t"+dpo.getStok()+"\t|\t"+dpo.getHarga()+"\t|");
+		}
+		System.out.println("     ----------------------------------------------------------------------------------------------------------------");
+		System.out.print("    | [B] Tekan Tombol B untuk kembali ke menu sebelumnya: ");
+		back = scanner.next().charAt(0);
+		if (back == 'B' || back == 'b') {
+			AktifitasAdmin.dataDepo();
 		}
 		scanner.close();
 	}

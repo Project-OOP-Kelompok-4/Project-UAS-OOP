@@ -1,5 +1,7 @@
 package view;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import DAO.AdminDAO;
@@ -261,7 +263,11 @@ public class FormIsian {
 	}
 	
 	public static void transaksi() {
+		List<DepoFarmasi> listDpo = new ArrayList<>();
+		List<Resep> listRsp = new ArrayList<>();
 		TebusObat trx = new TebusObat();
+		DepoFarmasiDAO dpo = new DepoFarmasiDAOImpl();
+		ResepDAO rsp = new ResepDAOImpl();
 		TebusObatDAO operation = new TebusObatDAOImpl();
 		Scanner scr = new Scanner(System.in);
 		char bpjs = 'N';
@@ -273,12 +279,13 @@ public class FormIsian {
 			trx.setId_pasien(scr.nextLine());
 			System.out.print("ID Resep : ");
 			trx.setId_resep(scr.nextLine());
+			System.out.println("Apakah pasien memiliki kartu BPJS?(Y/N)");
+			bpjs = scr.next().charAt(0);
 			
-			//trx.hitungBiaya(, 1, bpjs);
-			System.out.print("Dosis : ");
-			trx.setBiaya(scr.nextInt());
+			trx.setBiaya(trx.hitungBiaya(dpo.getHargaById(rsp.getObatByIdResep(trx.getId_resep(), listRsp), listDpo), 1, bpjs));
 		
-			//operation.updateResep(rsp);
+			operation.saveTransaksi(trx);
+			dpo.updateObat((dpo.getStokById(rsp.getObatByIdResep(trx.getId_resep(), listRsp), listDpo) - 1), rsp.getObatByIdResep(trx.getId_resep(), listRsp));
 			
 			System.out.println("Berhasil Ditambahkan....");
 			AktifitasDokter.dataResep();
@@ -304,6 +311,31 @@ public class FormIsian {
 			dpo.setHarga(scr.nextInt());
 		
 			operation.saveObat(dpo);
+			
+			System.out.println("Berhasil Ditambahkan....");
+			AktifitasDokter.dataResep();
+		} catch (Exception e) {
+			System.out.println("Terjadi Error : " +e.getMessage());
+		}
+		scr.close();
+	}
+	
+	public static void updateObat() {
+		DepoFarmasi dpo = new DepoFarmasi();
+		DepoFarmasiDAO operation = new DepoFarmasiDAOImpl();
+		Scanner scr = new Scanner(System.in);
+		try {
+			
+			System.out.print("ID Obat : ");
+			dpo.setId_obat(scr.nextLine());
+			System.out.print("Nama Obat : ");
+			dpo.setNama_obat(scr.nextLine());
+			System.out.print("Stok : ");
+			dpo.setStok(scr.nextInt());
+			System.out.print("Harga : ");
+			dpo.setHarga(scr.nextInt());
+		
+			operation.updateObat(dpo);
 			
 			System.out.println("Berhasil Ditambahkan....");
 			AktifitasDokter.dataResep();
