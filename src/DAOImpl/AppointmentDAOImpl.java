@@ -13,7 +13,7 @@ import utils.DatabaseUtils;
 public class AppointmentDAOImpl implements AppointmentDAO {
 
 	@Override
-	public String getAppoByIdApt(String id_apt) {
+	public Appointment getAppoByIdApt(String id_apt) {
 		DatabaseUtils db = new DatabaseUtils();
 		Appointment appointment = new Appointment();
 		try {
@@ -42,7 +42,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 		} catch (SQLException ex) {
             System.out.println("The following error has occured: " + ex.getMessage());
         }
-		return null;
+		return appointment;
 		
 	}
 

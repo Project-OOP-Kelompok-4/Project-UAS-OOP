@@ -1,10 +1,11 @@
 package pojo;
 
-public class Obat {
+public class DepoFarmasi {
+	//private String id_depo;
 	private String id_obat;
 	private String nama_obat;
+	private int stok;
 	private int harga;
-	
 	
 	public String getNama_obat() {
 		return nama_obat;
@@ -23,6 +24,12 @@ public class Obat {
 	}
 	public void setHarga(int harga) {
 		this.harga = harga;
+	}
+	public int getStok() {
+		return stok;
+	}
+	public void setStok(int stok) {
+		this.stok = stok;
 	}
 	
 	

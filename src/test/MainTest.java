@@ -1,23 +1,25 @@
 package test;
 
-import utils.DatabaseUtils;
 import utils.Validator;
+import view.AktifitasAdmin;
+//import utils.DatabaseUtils;
 import view.FormIsian;
-import view.Tabel;
+import view.Menu;
 
 import java.util.Scanner;
 
 import DAO.AdminDAO;
-import DAO.AppointmentDAO;
+//import DAO.AppointmentDAO;
 import DAO.DokterDAO;
-import DAO.ObatDAO;
+//import DAO.DepoFarmasiDAO;
 import DAOImpl.AdminDAOImpl;
-import DAOImpl.AppointmentDAOImpl;
+//import DAOImpl.AppointmentDAOImpl;
 import DAOImpl.DokterDAOImpl;
-import DAOImpl.ObatDAOImpl;
+//import DAOImpl.DepoFarmasiDAOImpl;
 import pojo.Admin;
-import pojo.Appointment;
+//import pojo.Appointment;
 import pojo.Dokter;
+
 public class MainTest {
 
 	public static void main(String[] args) {
@@ -26,10 +28,9 @@ public class MainTest {
 	
 	
 	public static void mainMenu() {
-		Tabel tabel = new Tabel();
 		Scanner scan = new Scanner(System.in);
 		
-		tabel.menuLogin();
+		Menu.menuLogin();
 		
 		int input = scan.nextInt();
 		
@@ -42,6 +43,7 @@ public class MainTest {
 			loginDokter();
 			break;
 		case 3 :
+			System.out.println("Program Berhenti Terimakasih ^_^");
 			break;
 		default :
 			System.out.println("Pilihan Tidak tersedia....!");
@@ -54,16 +56,13 @@ public class MainTest {
 	public static void loginAdmin() {
 		//Admin adm = new Admin();
 		AdminDAO operation = new AdminDAOImpl();
-		FormIsian form = new FormIsian();
 		Scanner scan = new Scanner(System.in);
 		Validator val = new Validator();
 		
 		int input = 0;
 		
-		System.out.println("Selamat Datang");
-		System.out.println("1. Login");
-		System.out.println("2. Register");
-		System.out.println("3. Kembali ");
+		Menu.loginAdmin();
+		
 		input = scan.nextInt();
 		
 		switch(input) {
@@ -84,14 +83,17 @@ public class MainTest {
 				if (admin != null) {
 					login = true;
 					System.out.println("Login Berhasil.......");
+					AktifitasAdmin.aktifitasAdmin();
 				}else {
 					System.out.println("Email atau Password salah, coba lagi.........");
+					loginAdmin();
 				}
 			}
 			sc.close();
 			break;
 		case 2 :
-			form.registAdmin();
+			FormIsian.registAdmin();
+			loginAdmin();
 			break;
 		case 3 :
 			mainMenu();
@@ -113,9 +115,8 @@ public class MainTest {
 		
 		int input = 0;
 		
-		System.out.println("Selamat Datang");
-		System.out.println("1. Login");
-		System.out.println("2. Kembali ");
+		Menu.loginDokter();
+		
 		input = scan.nextInt();
 		
 		switch(input) {

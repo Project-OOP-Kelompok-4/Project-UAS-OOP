@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DAO.PasienDAO;
-import pojo.Appointment;
-import pojo.Obat;
 import pojo.Pasien;
 import utils.DatabaseUtils;
 
@@ -93,22 +91,9 @@ public class PasienDAOImpl implements PasienDAO{
 		}
 		
 	}
-	/*
 	@Override
 	public String getByIdPasien(String id_pasien) {
-		DatabaseUtils db = new DatabaseUtils();
-		String query;
-		try {
-			db.connect();
-			query = "SELECT FROM pasien WHERE id_pasien='"+pasien.getId()+"'";
-			db.executeQuery(query);
-		} catch (Exception e) {
-			System.out.println("Terjadi error: " + e.getMessage());
-		}
+		// TODO Auto-generated method stub
 		return null;
 	}
-	*/
-
 }
-
-
