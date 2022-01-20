@@ -2,6 +2,7 @@ package test;
 
 import utils.Validator;
 import view.AktifitasAdmin;
+import view.AktifitasDokter;
 //import utils.DatabaseUtils;
 import view.FormIsian;
 import view.Menu;
@@ -137,6 +138,7 @@ public class MainTest {
 				if (dokter != null) {
 					login = true;
 					System.out.println("Login Berhasil.......");
+					AktifitasDokter.aktifitasDokter();
 				}else {
 					System.out.println("Email atau Password salah, coba lagi.........");
 				}

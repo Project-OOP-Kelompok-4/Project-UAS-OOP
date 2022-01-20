@@ -28,10 +28,12 @@ public class AktifitasDokter {
 		switch(pilih) {
 		
 		case 1 :
-			Tabel.displayJadwalDokter(jdwl.getAllJadwalDokter());
+			Tabel.displayJadwalDokter2(jdwl.getAllJadwalDokter());
+			aktifitasDokter();
 			break;
 		case 2 :
-			Tabel.tampilAppo(appo.getAllAppointment());
+			Tabel.tampilAppo2(appo.getAllAppointment());
+			aktifitasDokter();
 			break;
 		case 3 :
 			Tabel.displayPasien(pasien.getAllPasien());
@@ -75,6 +77,8 @@ public class AktifitasDokter {
 		case 4 :
 			FormIsian.hapusResep();
 			break;
+		case 5 :
+			aktifitasDokter();
 		default :
 			System.out.println("Pilihan Tidak Tersedia....");
 			dataResep();
