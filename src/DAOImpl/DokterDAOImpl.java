@@ -52,6 +52,7 @@ public class DokterDAOImpl implements DokterDAO{
 			query = "INSERT INTO dokter (id_dokter, nama_dokter, spesialis, email, password)"
 					+ " VALUES ('"+dokter.getId()+"', '"
 					+ dokter.getNama()+"', '"
+					+ dokter.getSpesialis()+"', '"
 					+ dokter.getEmail()+"', '"
 					+ dokter.getPassword()+"'); ";
 			

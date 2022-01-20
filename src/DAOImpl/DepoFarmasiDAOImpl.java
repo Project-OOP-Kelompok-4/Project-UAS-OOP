@@ -63,7 +63,7 @@ public class DepoFarmasiDAOImpl implements DepoFarmasiDAO{
 		
 		try {
 			db.connect();
-			query = "INSERT INTO depo_farmasi "
+			query = "INSERT INTO depo_farmasi (id_obat, nama_obat, stok, harga)"
 					+ " VALUES ('"+depoFarmasi.getId_obat()+"', '"
 					+ depoFarmasi.getNama_obat()+"', "
 					+ depoFarmasi.getStok()+", "

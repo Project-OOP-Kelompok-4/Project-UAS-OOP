@@ -40,7 +40,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 		
 			db.disconnect();
 		} catch (SQLException ex) {
-            System.out.println("The following error has occured: " + ex.getMessage());
+            System.out.println("Terjadi Error : " + ex.getMessage());
         }
 		return appointment;
 		

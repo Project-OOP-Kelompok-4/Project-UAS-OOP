@@ -5,10 +5,14 @@ import java.util.Scanner;
 import DAO.AppointmentDAO;
 import DAO.DepoFarmasiDAO;
 import DAO.DokterDAO;
+import DAO.JadwalDokterDAO;
+import DAO.PasienDAO;
 import DAO.TebusObatDAO;
 import DAOImpl.AppointmentDAOImpl;
 import DAOImpl.DepoFarmasiDAOImpl;
 import DAOImpl.DokterDAOImpl;
+import DAOImpl.JadwalDokterDAOImpl;
+import DAOImpl.PasienDAOImpl;
 import DAOImpl.TebusObatDAOImpl;
 import test.MainTest;
 
@@ -29,16 +33,16 @@ public class AktifitasAdmin {
 			dataDokter();
 			break;
 		case 2 :
-			//dataPasien();
+			dataPasien();
 			break;
 		case 3 :
 			dataAppo();
 			break;
 		case 4 :
-			//dataDepo();
+			dataDepo();
 			break;
 		case 5 :
-			//dataJadwal();
+			dataJadwal();
 			break;
 		case 6 :
 			dataTransaksi();
@@ -78,6 +82,8 @@ public class AktifitasAdmin {
 		case 4 :
 			FormIsian.hapusDokter();
 			break;
+		case 5 :
+			aktifitasAdmin();
 		default :
 			System.out.println("Pilihan Tidak Tersedia....");
 			dataDokter();
@@ -129,6 +135,16 @@ public class AktifitasAdmin {
 		
 		case 1 :
 			FormIsian.transaksi();
+			break;
+		case 2 :
+			Tabel.tampilTransaksi(trx.getTransaksi());
+			break;
+		case 3 :
+			aktifitasAdmin();
+			break;
+		default :
+			System.out.println("Pilihan Tidak Tersedia.....");
+			AktifitasAdmin.dataTransaksi();
 		}
 		scan.close();
 	}
@@ -158,6 +174,71 @@ public class AktifitasAdmin {
 		default :
 			System.out.println("Pilihan Tidak Tersedia....");
 			dataDepo();
+		}
+		scan.close();
+	}
+	
+	public static void dataPasien() {
+		PasienDAO psn = new PasienDAOImpl();
+		Scanner scan = new Scanner(System.in);
+		
+		Menu.dataPasien();
+		
+		int input = scan.nextInt();
+		
+		switch(input) {
+		
+		case 1 :
+			FormIsian.addPasien();
+			break;
+		case 2 :
+			Tabel.displayPasien2(psn.getAllPasien());
+			dataPasien();
+			break;
+		case 3 :
+			FormIsian.updatePasien();
+			break;
+		case 4 :
+			FormIsian.hapusPasien();
+			break;
+		case 5 :
+			aktifitasAdmin();
+			break;
+		default :
+			System.out.println("Pilihan Tidak Tersedia....");
+			dataPasien();
+		}
+		scan.close();
+	}
+	
+	public static void dataJadwal() {
+		JadwalDokterDAO jdw = new JadwalDokterDAOImpl();
+		Scanner scan = new Scanner(System.in);
+		
+		Menu.dataJadwal();
+		
+		int input = scan.nextInt();
+		
+		switch(input) {
+		
+		case 1 :
+			FormIsian.addJadwalDokter();
+			break;
+		case 2 :
+			Tabel.displayJadwalDokter(jdw.getAllJadwalDokter());
+			break;
+		case 3 :
+			FormIsian.updateJadwalDokter();
+			break;
+		case 4 :
+			FormIsian.hapusJadwalDokter();
+			break;
+		case 5 :
+			aktifitasAdmin();
+			break;
+		default :
+			System.out.println("Pilihan Tidak Tersedia....");
+			dataJadwal();
 		}
 		scan.close();
 	}

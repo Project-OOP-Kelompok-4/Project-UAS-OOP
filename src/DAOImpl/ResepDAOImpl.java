@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import DAO.ResepDAO;
-import pojo.DepoFarmasi;
 import pojo.Resep;
 import utils.DatabaseUtils;
 
@@ -67,7 +66,7 @@ public class ResepDAOImpl implements ResepDAO{
 			query = "INSERT INTO resep (id_resep, id_obat, id_pasien, dosis)"
 					+ " VALUES ('"+resep.getId_resep()+"', '"
 					+ resep.getId_obat()+"', '"
-					+ resep.getId_pasien()+"', ,"
+					+ resep.getId_pasien()+"', '"
 					+ resep.getDosis()+"');";
 			
 			db.executeQuery(query);
